@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\AdminCss\**" />
-    <Content Remove="wwwroot\AdminCss\**" />
-    <EmbeddedResource Remove="wwwroot\AdminCss\**" />
-    <None Remove="wwwroot\AdminCss\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\SiteCss\images\menu-main\card\" />
   </ItemGroup>
 
