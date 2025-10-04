@@ -19,4 +19,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ExtentionMthods\" />
+    <Folder Include="Securit\" />
+    <Folder Include="Sender\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>

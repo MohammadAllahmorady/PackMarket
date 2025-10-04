@@ -23,4 +23,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PackMarket.Core\PackMarket.Core.csproj" />
+    <ProjectReference Include="..\PackMarket.DataLayer\PackMarket.DataLayer.csproj" />
+  </ItemGroup>
+
 </Project>
