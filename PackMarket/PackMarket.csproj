@@ -8,17 +8,13 @@
 
   <ItemGroup>
     <Compile Remove="wwwroot\AdminCss\**" />
-    <Compile Remove="wwwroot\SiteCss\**" />
     <Content Remove="wwwroot\AdminCss\**" />
-    <Content Remove="wwwroot\SiteCss\**" />
     <EmbeddedResource Remove="wwwroot\AdminCss\**" />
-    <EmbeddedResource Remove="wwwroot\SiteCss\**" />
     <None Remove="wwwroot\AdminCss\**" />
-    <None Remove="wwwroot\SiteCss\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\SiteCss\images\menu-main\card\" />
   </ItemGroup>
 
 </Project>
