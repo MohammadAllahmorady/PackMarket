@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using PackMarket.DataLayer.Entities;
 
 namespace PackMarket.DataLayer.Context
 {
@@ -14,5 +15,6 @@ namespace PackMarket.DataLayer.Context
         {
             
         }
+        public DbSet<MainSlider> MainSlider { get; set; }
     }
 }
