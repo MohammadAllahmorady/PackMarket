@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PackMarket.DataLayer.Context;
 
@@ -10,9 +11,11 @@ using PackMarket.DataLayer.Context;
 namespace PackMarket.DataLayer.Migrations
 {
     [DbContext(typeof(PackMarketContext))]
-    partial class PackMarketContextModelSnapshot : ModelSnapshot
+    [Migration("20251005132829_update_tbl_migration-2")]
+    partial class update_tbl_migration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

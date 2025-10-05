@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using PackMarket.Core.Services;
+using PackMarket.Core.Services.Interfaces;
 using PackMarket.DataLayer.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,10 @@ builder.Services.AddDbContext<PackMarketContext>(option =>
 {
     option.UseSqlServer(connectionString);
 });
+
+#region IOC
+builder.Services.AddTransient<ISliderService,SliderService>();
+#endregion
 
 var app = builder.Build();
 

@@ -23,7 +23,10 @@
     <Folder Include="ExtentionMthods\" />
     <Folder Include="Securit\" />
     <Folder Include="Sender\" />
-    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PackMarket.DataLayer\PackMarket.DataLayer.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,6 +17,7 @@ namespace PackMarket.DataLayer.Entities
         [Display(Name = "Altاسلایدر")]
         public string SliderAlt { get; set; }
         [Display(Name = "تصویر اسلایدر")]
+        [Required(ErrorMessage = "وارد کردن {0} اجباری است.")]
         public string SliderImage { get; set; }
         public int SliderSort { get; set; }
         [Display(Name = "وضعیت اسلایدر")]
