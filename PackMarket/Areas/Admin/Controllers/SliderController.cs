@@ -32,5 +32,26 @@ namespace PackMarket.Areas.Admin.Controllers
             TempData["Result"]=res>0?"true":"false";
             return RedirectToAction(nameof(Index));
         }
+        [HttpGet]
+        public IActionResult UpdateSlider(int id)
+        {
+            MainSlider mainSlider = _SlidrService.FindSliderById(id);
+            if (mainSlider==null)
+            {
+                TempData["NotFoundSlider"] = true;
+                return RedirectToAction(nameof(Index));
+            }
+            return View(mainSlider);
+        }
+        [HttpPost]
+        public IActionResult UpdateSlider(MainSlider mainSlider)
+        {
+            if (!ModelState.IsValid)
+                return View(mainSlider);
+
+            var res = _SlidrService.UpdateSlider(mainSlider);
+            TempData["Result"] = res == true ? "true" : "false";
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
