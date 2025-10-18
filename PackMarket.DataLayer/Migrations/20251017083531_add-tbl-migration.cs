@@ -5,7 +5,7 @@
 namespace PackMarket.DataLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class update_tbl_migration2 : Migration
+    public partial class addtblmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -38,7 +38,7 @@ namespace PackMarket.Core.Services
             {
                 _context.MainSlider.Remove(mainSlider);
                 _context.SaveChanges();
-                return false;
+                return true;
             }
             catch (Exception e)
             {
