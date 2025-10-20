@@ -51,9 +51,10 @@ namespace PackMarket.Core.Services
             return _context.MainSlider.Find(sliderId);
         }
 
-        public List<MainSlider> ShowAllSliders()
+        public List<MainSlider> ShowAllSliders(int page)
         {
-            return _context.MainSlider.OrderBy(s => s.SliderSort).ToList();
+            int skip=(page-1)*2;
+            return _context.MainSlider.OrderBy(s => s.SliderSort).Skip(skip).Take(2).ToList();
         }
 
         public bool UpdateSlider(MainSlider mainSlider)
@@ -68,6 +69,16 @@ namespace PackMarket.Core.Services
             {
                 return false;
             }
+        }
+
+        public int SliderCount()
+        {
+            int SliderCount = _context.MainSlider.Count();
+            if (SliderCount % 2 != 0)
+                SliderCount++;
+
+            SliderCount=SliderCount /2;
+            return SliderCount;
         }
     }
 }

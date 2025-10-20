@@ -9,11 +9,12 @@ namespace PackMarket.Core.Services.Interfaces
 {
     public interface ISliderService
     {
-        List<MainSlider> ShowAllSliders();
+        List<MainSlider> ShowAllSliders(int page);
         MainSlider FindSliderById(int id);
         int AddSlider(MainSlider mainSlider);
         bool UpdateSlider(MainSlider mainSlider);
         bool DeleteSlider(MainSlider mainSlider);
+        public int SliderCount();
 
     }
 }

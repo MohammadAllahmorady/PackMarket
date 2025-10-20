@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<MainSlider>
 @{
     ViewData["Title"] = "Index";
+    int page = ViewBag.page;
+    int sliderCount = ViewBag.CountSlider;
 }
 <!-- ============================================================== -->
 <div class="content-page">
@@ -78,7 +80,7 @@
                                                             <td class="sorting_1">@item.SliderId</td>
                                                             <td class="sorting_1">@item.SliderTitle</td>
                                                             <td class="sorting_1">@item.SliderAlt</td>
-                                                            <td class="sorting_1"><img  width="140" height="130" class="img-thumbnail" src="~/SiteCss/images/@item.SliderImage"/></td>
+                                                            <td class="sorting_1"><img width="140" height="130" class="img-thumbnail" src="~/SiteCss/images/@item.SliderImage" /></td>
                                                             <td class="actions">
                                                                 <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
                                                                 <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
@@ -103,7 +105,22 @@
                                         <div class="dataTables_info" id="datatable-editable_info" role="status" aria-live="polite">Showing 1 to 10 of 80 entries</div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="dataTables_paginate paging_simple_numbers" id="datatable-editable_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="datatable-editable" tabindex="0" id="datatable-editable_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="datatable-editable" tabindex="0"><a href="#">1</a></li><li class="paginate_button " aria-controls="datatable-editable" tabindex="0"><a href="#">2</a></li><li class="paginate_button " aria-controls="datatable-editable" tabindex="0"><a href="#">3</a></li><li class="paginate_button " aria-controls="datatable-editable" tabindex="0"><a href="#">4</a></li><li class="paginate_button " aria-controls="datatable-editable" tabindex="0"><a href="#">5</a></li><li class="paginate_button disabled" aria-controls="datatable-editable" tabindex="0" id="datatable-editable_ellipsis"><a href="#">…</a></li><li class="paginate_button " aria-controls="datatable-editable" tabindex="0"><a href="#">8</a></li><li class="paginate_button next" aria-controls="datatable-editable" tabindex="0" id="datatable-editable_next"><a href="#">Next</a></li></ul></div>
+                                        <div class="dataTables_paginate paging_simple_numbers" id="datatable-editable_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button previous " aria-controls="datatable" tabindex="0" id="datatable_previous">
+                                                    <a href="~/Admin/Slider/Index?page=1">صفحه اول</a>
+                                                </li>
+                                                @for (int i = 1; i <= sliderCount; i++)
+                                                {
+                                                    <li class="paginate_button @(i == page ? "active" : "")" aria-controls="datatable-editable" tabindex="0" id="datatable-editable_next">
+                                                        <a href="~/Admin/Slider/Index?page=@i">@i</a>
+                                                    </li>
+                                                }
+                                                <li class="paginate_button next" aria-controls="datatable" tabindex="0" id="datatable_next">
+                                                    <a href="~/Admin/Slider/Index?page=@sliderCount">صفحه آخر</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

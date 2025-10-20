@@ -14,9 +14,11 @@ namespace PackMarket.Areas.Admin.Controllers
         {
             _SlidrService = slidrService;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
-            return View(_SlidrService.ShowAllSliders());
+            ViewBag.page = page;
+            ViewBag.CountSlider = _SlidrService.SliderCount();
+            return View(_SlidrService.ShowAllSliders(page));
         }
         [HttpGet]
         public IActionResult AddSlider()
