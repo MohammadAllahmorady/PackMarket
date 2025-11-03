@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PackMarket.DataLayer.Context;
 
@@ -11,9 +12,11 @@ using PackMarket.DataLayer.Context;
 namespace PackMarket.DataLayer.Migrations
 {
     [DbContext(typeof(PackMarketContext))]
-    partial class PackMarketContextModelSnapshot : ModelSnapshot
+    [Migration("20251029201808_Add_Tbl_product")]
+    partial class Add_Tbl_product
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -307,52 +310,6 @@ namespace PackMarket.DataLayer.Migrations
                     b.ToTable("ProductGurantees");
                 });
 
-            modelBuilder.Entity("PackMarket.DataLayer.Entities.Entitieproduct.ProductPrice", b =>
-                {
-                    b.Property<int>("ProductPriceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductPriceId"));
-
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("EndDateDisCount")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("MainPrice")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaxOrderCount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductColorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductGuranteeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpecialPrice")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductPriceId");
-
-                    b.HasIndex("ProductColorId");
-
-                    b.HasIndex("ProductGuranteeId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductPrices");
-                });
-
             modelBuilder.Entity("PackMarket.DataLayer.Entities.Entitieproduct.PropertyName", b =>
                 {
                     b.Property<int>("PropertyNameId")
@@ -617,33 +574,6 @@ namespace PackMarket.DataLayer.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("PackMarket.DataLayer.Entities.Entitieproduct.ProductPrice", b =>
-                {
-                    b.HasOne("PackMarket.DataLayer.Entities.Entitieproduct.ProductColor", "ProductColor")
-                        .WithMany("ProductPrices")
-                        .HasForeignKey("ProductColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PackMarket.DataLayer.Entities.Entitieproduct.ProductGurantee", "ProductGurantee")
-                        .WithMany("ProductPrices")
-                        .HasForeignKey("ProductGuranteeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PackMarket.DataLayer.Entities.Entitieproduct.Product", "Product")
-                        .WithMany("ProductPrices")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("ProductColor");
-
-                    b.Navigation("ProductGurantee");
-                });
-
             modelBuilder.Entity("PackMarket.DataLayer.Entities.Entitieproduct.PropertyName_Category", b =>
                 {
                     b.HasOne("PackMarket.DataLayer.Entities.Entitieproduct.Category", "Category")
@@ -708,23 +638,11 @@ namespace PackMarket.DataLayer.Migrations
 
                     b.Navigation("ProductGalleries");
 
-                    b.Navigation("ProductPrices");
-
                     b.Navigation("PropertyValue");
 
                     b.Navigation("Questions");
 
                     b.Navigation("Reviews");
-                });
-
-            modelBuilder.Entity("PackMarket.DataLayer.Entities.Entitieproduct.ProductColor", b =>
-                {
-                    b.Navigation("ProductPrices");
-                });
-
-            modelBuilder.Entity("PackMarket.DataLayer.Entities.Entitieproduct.ProductGurantee", b =>
-                {
-                    b.Navigation("ProductPrices");
                 });
 
             modelBuilder.Entity("PackMarket.DataLayer.Entities.Entitieproduct.PropertyName", b =>
