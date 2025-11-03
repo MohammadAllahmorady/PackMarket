@@ -15,6 +15,7 @@ builder.Services.AddDbContext<PackMarketContext>(option =>
 
 #region IOC
 builder.Services.AddTransient<ISliderService,SliderService>();
+builder.Services.AddTransient<IProductService, ProductService>();
 #endregion
 
 var app = builder.Build();
