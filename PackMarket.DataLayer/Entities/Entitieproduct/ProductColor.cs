@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace PackMarket.DataLayer.Entities.Entitieproduct
 {
@@ -13,7 +15,7 @@ namespace PackMarket.DataLayer.Entities.Entitieproduct
         public int ColorId { get; set; }
         [Display(Name = "اسم رنگ")]
         [Required(ErrorMessage = "لطفا {0} را وارد نمایید")]
-        [MinLength(4, ErrorMessage = "{0} نمی تواند کمتر از {1} باشد.")]
+        [MinLength(3, ErrorMessage = "{0} نمی تواند کمتر از {1} باشد.")]
         [MaxLength(50, ErrorMessage = "{0} نمی تواند بیشتر از {1}باشد.")]
         public string ColorName { get; set; }
         [Display(Name = "کد رنگ")]
@@ -22,7 +24,7 @@ namespace PackMarket.DataLayer.Entities.Entitieproduct
         public string ColorCode { get; set; }
 
         #region Relation
-
+        [ValidateNever]
         public List<ProductPrice> ProductPrices { get; set; }
 
         #endregion

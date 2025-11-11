@@ -32,9 +32,9 @@ namespace PackMarket.Core.Services
             }
         }
 
-        public bool ExistColor(string nameColor, string codeColor)
+        public bool ExistColor(string nameColor, string codeColor,int colorid)
         {
-            return _Context.ProductColors.Any(c => c.ColorName == nameColor || c.ColorCode == codeColor);
+            return _Context.ProductColors.Any(c => c.ColorName == nameColor && c.ColorCode == codeColor && c.ColorId!=colorid);
         }
 
         public ProductColor FindColorById(int colorId)

@@ -15,7 +15,7 @@ namespace PackMarket.Core.Services.Interfaces
         int AddColor(ProductColor productColor);
         bool UpdateColor(ProductColor productColor);
         ProductColor FindColorById(int colorId);
-        bool ExistColor(string nameColor, string codeColor);
+        bool ExistColor(string nameColor, string codeColor,int colorid);
 
         #endregion
     }

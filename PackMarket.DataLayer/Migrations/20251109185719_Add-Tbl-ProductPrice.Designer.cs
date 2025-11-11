@@ -12,8 +12,8 @@ using PackMarket.DataLayer.Context;
 namespace PackMarket.DataLayer.Migrations
 {
     [DbContext(typeof(PackMarketContext))]
-    [Migration("20251031164118_Add-Tbl_ProductPrice")]
-    partial class AddTbl_ProductPrice
+    [Migration("20251109185719_Add-Tbl-ProductPrice")]
+    partial class AddTblProductPrice
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

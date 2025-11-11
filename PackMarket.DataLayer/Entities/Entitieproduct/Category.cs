@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace PackMarket.DataLayer.Entities.Entitieproduct
 {
@@ -25,11 +26,14 @@ namespace PackMarket.DataLayer.Entities.Entitieproduct
         [MaxLength(100, ErrorMessage = "{0} نمی تواند بیشتر از {1}باشد.")]
         public string CategoryEnTitle { get; set; }
 
-        public int SubCategory { get; set; }
+        public int? SubCategory { get; set; }
         public bool IsDelete { get; set; }
         #region Relation
+        [ValidateNever]
         public List<Product> Products { get; set; }
+        [ValidateNever]
         public List<PropertyName_Category> PropertyNameCategories { get; set; }
+        [ValidateNever]
         [ForeignKey("SubCategory")]
         public Category Categori { get; set; }
         #endregion
